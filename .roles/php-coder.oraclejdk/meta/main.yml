@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Slava Semushin
+  description: Installs OracleJDK from WebUpd8 team's PPA
+  license: GPLv2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+  categories:
+  - development
+  - system
+dependencies: []
