@@ -1,0 +1,5 @@
+---
+
+ansible_host: 
+ - target1
+ - target2

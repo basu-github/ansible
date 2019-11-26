@@ -1,0 +1,42 @@
+---
+-
+ name: install mariadb-server
+ yum:
+   name: mariadb-server
+   state: installed 
+
+- name: start mariadb-server service
+  service:
+   name: mariadb
+   state: restarted 
+   enable: yes
+  ignore_errors: true
+ 
+#- name: install python-mysqldb
+#  yum:
+#     name: python-mysqldb
+#     state: installed 
+
+#- name: Configure Database
+#  mysql_db:
+#    name: ecomdb
+#    state: installed
+#- mysql_db:
+#     name: ecomdb
+#     login_user: 'ecomuser'
+#     login_password: 'ecompassword'
+#   # priv: *.*:ALL 
+#     host: localhost
+
+#- name: copy mysql file to load
+#  copy:
+#    src: /root/work/db-load-script.sql
+#    dest: /root/db-load-script.sql
+#
+#- name: Load Product Inventory Information to database
+#  mysql_db:
+#    state: dump
+#    name: ecomdb
+#    target: /root/db-load-script.sql
+    
+    

@@ -1,0 +1,15 @@
+---
+-
+ name: play1
+ gather_facts: false
+ hosts: target*
+ tasks:
+#  - name: ping test
+#    command: ping
+
+  - name: copy files
+    copy: 
+     src: /root/work/hosts.txt
+     dest: /root
+    delegate_to: target2
+    run_once: true 

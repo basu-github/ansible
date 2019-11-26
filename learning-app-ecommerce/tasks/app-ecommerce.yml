@@ -1,0 +1,15 @@
+---
+-
+ name: copy index.php
+ copy: 
+  src: /var/www/html/index.php 
+  dest: /var/www/html/
+
+- name: Update index.php
+  lineinfile:
+     path: /var/www/html/index.php
+     regex: "^mysqli_connect('172.20.1.101'"
+     file: mysqli_connect('localhost'
+
+-  name: running curl command to test 
+   command : curl http://localhost     

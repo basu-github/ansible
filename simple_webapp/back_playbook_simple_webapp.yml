@@ -1,0 +1,87 @@
+---
+-
+ name: deploy a web application 
+ hosts: target2
+ tasks: 
+   - name: install all dependencies
+     yum:
+      name: "{{item}}"
+      state: installed 
+     with_items:
+       - python 
+       - python-setuptools
+       - python-dev
+       - build-essential
+       - python-pip  
+  
+   - name: install mysql-server
+     yum:
+       name: "{{item}}"
+       state: installed 
+     with_items:
+       - mysql-server
+       - mysql_client 
+
+   - name: enable mysql service 
+     service:
+          name: mysql
+          state: started 
+          enabled: yes 
+ 
+   - name: create mysql database 
+     mysql_user:
+        name: db_user
+        password: PasswOrd
+        append_privs: yes
+        priv: '*.*:ALL'
+        state: present 
+
+   - name: install python flask module
+     pip:
+      name: "{{item}}" 
+      state: present
+     with_items:
+       - flask
+       - flask-mysql 
+
+ # - name: install git 
+ #   yum:
+ #     name: git
+ #     state: installed 
+
+#  - name: clone source code from github 
+#    git:
+#       repo: https://github.com/amrutja26/simple_web_application
+#       dest: /root/work/simple_webapp
+ 
+   - name: 'copy source code to /opt dir'
+     copy:
+      src: /root/work/simple_webapp
+      dest: /opt
+  
+   - name: start web server 
+     shell: FLASK_APP= /opt/app.py nohup flask run --host=0.0.0.0 & 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

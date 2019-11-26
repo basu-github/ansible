@@ -1,0 +1,14 @@
+1.3
+- Fix "oracle-license-v1-1 license could not be presented" error.
+
+1.2
+- Add Ubuntu 16.04 LTS to list of supported versions.
+- Change style of tasks' definitions.
+
+1.1
+- Added oraclejdk_set_as_default parameter which is enabled by default.
+  If you don't want to have it enabled by default and want to preserve backward compatibility then
+  you need to turn it off manually.
+
+1.0
+- Initial version

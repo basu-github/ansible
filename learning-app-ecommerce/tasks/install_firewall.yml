@@ -1,0 +1,19 @@
+---
+ - name: installing firewall 
+   yum:
+    name: firewalld
+    state: installed
+
+# - name: starting firwall service 
+#   service:
+#         name: firewalld
+#         state: started 
+        
+# - name: enable firewalld service
+#   systemd:
+#      name: firewalld
+#      enabled: yes
+
+
+
+    

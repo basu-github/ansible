@@ -1,0 +1,8 @@
+---
+# tasks file for learning-app-ecommerce
+
+- import_tasks: install_firewall.yml
+- import_tasks: install_db.yml
+- import_tasks: install_package.yml
+- import_tasks: install_git.yml
+- import_tasks: app-ecommerce.yml

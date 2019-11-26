@@ -1,0 +1,29 @@
+---
+- 
+  name: install packeges 
+  yum:
+    name: "{{item}}"
+    state: installed
+  with_items:
+    - httpd
+    - php
+    - php-mysql
+
+# name: config. firewall for http 
+# command: firewall-cmd --permanent --zone=public --add-port=80/tcp
+
+# command: sudo firewall-cmd --reload
+
+- name: Configure httpd
+  lineinfile:
+   path: /etc/httpd/conf/httpd.conf
+   regexp: '^(.*)DirectoryIndex index.html'
+   line: 'DirectoryIndex index.php'
+
+- name: Start httpd
+  service:
+        name: httpd
+        state: started 
+        enabled: yes 
+
+

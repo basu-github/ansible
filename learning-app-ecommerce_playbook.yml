@@ -1,0 +1,8 @@
+---
+-
+  name: running learning-app-ecommerce_playbook.yml script 
+  hosts: target1
+  gather_facts: false
+ #roles: 
+ #  - learning-app-ecommerce
+- include: learning-app-ecommerce/tasks/install_git.yml
