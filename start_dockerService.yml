@@ -1,0 +1,20 @@
+---
+-
+  name: start docker services on the hosts
+  hosts: localhost,all
+  gather_facts: false
+  tasks:
+   - name: service docker start 
+     service:
+         name: docker
+         state: started 
+
+#-
+#  name: start docker compose service
+#  hosts: localhost
+#  tasks:
+#     - name: docker-compose start 
+#       docker_compose:
+#          restarted: yes
+
+    

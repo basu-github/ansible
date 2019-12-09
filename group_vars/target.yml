@@ -3,3 +3,5 @@
 ansible_host: 
  - target1
  - target2
+basu: "this is from group vars" 
+

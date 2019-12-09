@@ -3,13 +3,21 @@
  name: play1
  gather_facts: false
  hosts: target*
+# vars:
+#  basu: "inside playbook"
  tasks:
 #  - name: ping test
 #    command: ping
 
   - name: copy files
+    vars:
+      basu: "inside tasks"
     copy: 
      src: /root/work/hosts.txt
      dest: /root
     delegate_to: target2
-    run_once: true 
+    run_once: true
+ 
+  - debug:
+     msg: "{{basu}}"  
+
